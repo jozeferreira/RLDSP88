@@ -111,26 +111,28 @@
 #define		Stat_Mon_Bat		1			//Monitora a tensão da bateria
 #define		Stat_First_Time		2			//Monitora se relógio perdeu consistência
 #define 	Stat_Chaves			3
+#define		Stat_Despertador	4
+#define		Stat_Soneca			5
 /*================================================================*/
 ///Posições com para uso de bits como flags
 unsigned int  AddresBit;
-#define		bApaga_DSP 			0	//1
-#define		bt_Over_ADJ			1	//2
-#define		bLow_Bat			2   //4      	//Habilita o tempo que o relógio sai do modo ajuste automaticamente
-#define		bNear_Low_Bat		3	//8
-#define		bFirst_Time			4	//16
-#define		bPower_Fail			5	//32
-#define		bAlarme_ON			6	//64
-#define		bAjuste				7	//128
+#define		bApaga_DSP 		0	//1
+#define		bt_Over_ADJ		1	//2
+#define		bLow_Bat		2   //4      	//Habilita o tempo que o relógio sai do modo ajuste automaticamente
+#define		bNear_Low_Bat	3	//8
+#define		bFirst_Time		4	//16
+#define		bPower_Fail		5	//32
+#define		bAlarme_ON		6	//64
+#define		bAjuste			7	//128
 //-----------------------------------
 #define		bSW_HORA_TEMP	8	//256
 #define		bHab_Desp1		9   //512 		 Habilita ajustar hora e minuto
 #define		bHab_Desp2		10	//1024
 #define		bHab_Desp3		11	//2048
-//#define					12	//4096
-//#define					13	//8092
-//#define					14	//16384
-//#define					15	//32768
+#define		bDesp1_ON		12	//4096
+#define		bDesp2_ON		13	//8092
+#define		bDesp3_ON		14	//16384
+#define		bSoneca			15	//32768
 //======================================================================
 //Macros
 #define CLR_USERBIT(bit)	\
@@ -185,6 +187,10 @@ PORTB ^= (1 << led)
 //---------------------------------------------------------------
 #define  CARREGA_TIMER_OVER_ADJ()		\
 Timer_Over_ADJ = T_OVER_ADJ
+//---------------------------------------------------------------
+#define LIGA_BUZZER() { SET_PORT_BIT(PORTC_Img,Buzzer);	PORTC = PORTC_Img;}
+//---------------------------------------------------------------
+#define DESLIGA_BUZZER() {CLR_PORT_BIT(PORTC_Img,Buzzer);	PORTC = PORTC_Img;}
 //======================================================================
 //Memória Volátil
 subs unsigned char Hora;					//Buffer para guardar a Hora
@@ -196,10 +202,12 @@ subs unsigned char Pont_Seq_Mq_Estado;
 subs unsigned char CTR_Display;
 subs unsigned char Real_Timer;
 subs unsigned int Timer_Led_Seg;		//Buffer da cadência das piscadas do led do segundo
-subs unsigned int Timer_Led_Desp;
+subs unsigned char Timer_Led_Desp;
+subs unsigned char Timer_Led_Alarme;
 subs unsigned int Timer_SW_ACIONADA;    //Temporiza o acionamento da chave
 subs unsigned int Timer_Over_ADJ;       //Buffer do tempo que o relógio leva para sair do modo ajuste automaticamente
 subs unsigned int Timer_Wait;
+subs unsigned int Timer_Over_Despertador;	//Temporiza máximo tempo do despertador
 subs unsigned int Leitura_ADC;
 subs unsigned char Hora_Desp_1;
 subs unsigned char Hora_Desp_2;
@@ -215,6 +223,8 @@ subs unsigned char Display_Minuto;
 subs unsigned char pTabHoraMinuto;
 subs unsigned char pTabHoraMinuto_bkp;
 subs unsigned char PORTC_Img;
+subs unsigned char Seq_Buzzer;
+subs unsigned char Timer_Buzzer_Alarme;
 //=====================================================================
 //Memória de Programa
 #ifdef Mod_Main

@@ -18,7 +18,9 @@ const unsigned char Tab_Seq_Mq_Estado[]=
 {
     Stat_Mon_Power,
     Stat_Mon_Bat,
-    Stat_Chaves
+    Stat_Chaves,
+    Stat_Despertador,
+    Stat_Soneca,
  };
 /*------------------------------------------------------------*/
 int main ()
@@ -50,6 +52,8 @@ int main ()
 	Minuto_Desp_3 = 0;
 	pTabHoraMinuto = 0;
 	pTabHoraMinuto_bkp = 0;
+	Seq_Buzzer = 0;
+	Timer_Buzzer_Alarme = 0;
 	CTR_Display = CTR_Unid_Hora;		//Começa pelo display da hora
 	VL_Ch = 0xFF;				//Limpa o buffer das Chaves
 	Estado = 0;
@@ -61,6 +65,7 @@ int main ()
 	Timer_SW_ACIONADA = T_SW_ACIONADA;		//Em milissegundos
 	Timer_Over_ADJ = T_OVER_ADJ;				//Carrega o buffer
 	Timer_Wait = 0;
+	Timer_Over_Despertador = 0;
 	Pont_Seq_Mq_Estado = 0;			//Define a primeira passada pela máquina
 	Config_ADC();					//Configura o ADC
 	Configura_Timer_1_Modo_CTC();
@@ -80,7 +85,7 @@ int main ()
 
 	while (1)
 	{
-		Estado = Tab_Seq_Mq_Estado[Pont_Seq_Mq_Estado];		//Pega a tarefa
+		//Estado = Tab_Seq_Mq_Estado[Pont_Seq_Mq_Estado];		//Pega a tarefa
 
 		switch (Estado)
 		{
@@ -95,7 +100,8 @@ int main ()
 				else if(Leitura_ADC > (POWER_FAIL + VHISTERESE) && TESTE_USERBIT(bPower_Fail) != 0)	//Tensão da rede está boa e está sinalizando ruim
 				CLR_USERBIT(bPower_Fail);
 			}
-			Pont_Seq_Mq_Estado++;
+			//Pont_Seq_Mq_Estado++;
+			Estado = Stat_Mon_Bat;
 			break;
 		//-------------------------------------
 			case	Stat_Mon_Bat:				//Verifica a tensão da bateria
@@ -121,158 +127,188 @@ int main ()
 					CLR_USERBIT(bLow_Bat);					//Idem Bateria baixa
 				}
 			}
-			Pont_Seq_Mq_Estado++;
+			//Pont_Seq_Mq_Estado++;
+			Estado = Stat_Chaves;
 			break;
 		//------------------------------------------
 			case	Stat_Chaves:
 
-			if(LE_SW_SEL_DESP() == 0)
+			if(TESTE_USERBIT(bAlarme_ON) != 0)		//se estiver despertando...
+			Estado = Stat_Despertador;				//...trata o despertador
+			else
 			{
-				Wait(20);		//Bouncing
 				if(LE_SW_SEL_DESP() == 0)
 				{
-					while(LE_SW_SEL_DESP() == 0)	//Espera soltar a chave
-					{}
-					pTabHoraMinuto = pTabHoraMinuto_bkp;		//Pega a próxima sequênciq
-					VL_Ch = 0xFF;
-					SET_USERBIT(bFirst_Time);		//HAbita mostrar o horário no display;
-					SET_USERBIT(bAjuste);			//Sinaliza que está ajustando
-					Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];
-					Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto];
-					//---------------------------------------------------
-					//Indo para próxima sequência da tabela de horários (Guarda para a próxima passada)
-					//---------------------------------------------------
-					pTabHoraMinuto_bkp++;
-					if(	Tab_Hora_Desp[pTabHoraMinuto_bkp] == &Fim_Tab_Hora ||
-						Tab_Hora_Desp[pTabHoraMinuto_bkp] == &Fim_Tab_Minuto)
-					pTabHoraMinuto_bkp = 0;
-					CARREGA_TIMER_OVER_ADJ();
-					//---------------------------------------------------
-				}
-			}
-			//---------------------
-			else if(LE_SW_HAB_DESP() == 0)
-			{
-				Wait(20);	//Bouncing
-				if(LE_SW_HAB_DESP() == 0)
-				{
-					while(LE_SW_HAB_DESP() == 0)	//Espera soltar a chave
-					{}
-
-					if(pTabHoraMinuto == 1)
-					CPL_USERBIT(bHab_Desp1);
-
-
-					else if(pTabHoraMinuto == 2)
-					CPL_USERBIT(bHab_Desp2);
-
-					else if(pTabHoraMinuto == 3)
-					CPL_USERBIT(bHab_Desp3);
-
-					CARREGA_TIMER_OVER_ADJ();
-				}
-			}
-			//----------------------
-			else if(LE_SW_SEL_HORA() == 0 && TESTE_USERBIT(bAjuste) != 0)		//Só executa se estiver no modo ajuste)
-			{
-				Wait(20); //Bouncing
-				if(LE_SW_SEL_HORA() == 0)
-				{
-					Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];	//Pega Hora correspondente e coloca no display
-					Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto]; //idem para Minuto
-					Timer_SW_ACIONADA = T_SW_ACIONADA;		//Carrega o temporizador da chave
-					while(Timer_SW_ACIONADA > 0 && LE_SW_SEL_HORA() == 0)
-					{}
-					//---------------------------------------------
-					//		Avanço Automático da Hora
-					//---------------------------------------------
-					if(Timer_SW_ACIONADA == 0)
+					Wait(20);		//Bouncing
+					if(LE_SW_SEL_DESP() == 0)
 					{
-						while (LE_SW_SEL_HORA() == 0)
+						while(LE_SW_SEL_DESP() == 0)	//Espera soltar a chave
+						{}
+						pTabHoraMinuto = pTabHoraMinuto_bkp;		//Pega a próxima sequênciq
+						VL_Ch = 0xFF;
+						SET_USERBIT(bFirst_Time);		//HAbita mostrar o horário no display;
+						SET_USERBIT(bAjuste);			//Sinaliza que está ajustando
+						Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];
+						Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto];
+						//---------------------------------------------------
+						//Indo para próxima sequência da tabela de horários (Guarda para a próxima passada)
+						//---------------------------------------------------
+						pTabHoraMinuto_bkp++;
+						if(	Tab_Hora_Desp[pTabHoraMinuto_bkp] == &Fim_Tab_Hora ||
+							Tab_Hora_Desp[pTabHoraMinuto_bkp] == &Fim_Tab_Minuto)
+						pTabHoraMinuto_bkp = 0;
+						CARREGA_TIMER_OVER_ADJ();
+						//---------------------------------------------------
+					}
+				}
+				//---------------------
+				else if(LE_SW_HAB_DESP() == 0)
+				{
+					Wait(20);	//Bouncing
+					if(LE_SW_HAB_DESP() == 0)
+					{
+						while(LE_SW_HAB_DESP() == 0)	//Espera soltar a chave
+						{}
+
+						if(pTabHoraMinuto == 1)
+						CPL_USERBIT(bHab_Desp1);
+
+
+						else if(pTabHoraMinuto == 2)
+						CPL_USERBIT(bHab_Desp2);
+
+						else if(pTabHoraMinuto == 3)
+						CPL_USERBIT(bHab_Desp3);
+
+						CARREGA_TIMER_OVER_ADJ();
+					}
+				}
+				//----------------------
+				else if(LE_SW_SEL_HORA() == 0 && TESTE_USERBIT(bAjuste) != 0)		//Só executa se estiver no modo ajuste)
+				{
+					Wait(20); //Bouncing
+					if(LE_SW_SEL_HORA() == 0)
+					{
+						Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];	//Pega Hora correspondente e coloca no display
+						Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto]; //idem para Minuto
+						Timer_SW_ACIONADA = T_SW_ACIONADA;		//Carrega o temporizador da chave
+						while(Timer_SW_ACIONADA > 0 && LE_SW_SEL_HORA() == 0)
+						{}
+						//---------------------------------------------
+						//		Avanço Automático da Hora
+						//---------------------------------------------
+						if(Timer_SW_ACIONADA == 0)
+						{
+							while (LE_SW_SEL_HORA() == 0)
+							{
+								*Tab_Hora_Desp[pTabHoraMinuto] += 1;
+								if(*Tab_Hora_Desp[pTabHoraMinuto] == 24)
+								*Tab_Hora_Desp[pTabHoraMinuto] = 0;
+								Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];
+								CARREGA_TIMER_OVER_ADJ();
+								Wait(200);
+							}
+						}
+
+						//---------------------------------------------
+						else
 						{
 							*Tab_Hora_Desp[pTabHoraMinuto] += 1;
 							if(*Tab_Hora_Desp[pTabHoraMinuto] == 24)
 							*Tab_Hora_Desp[pTabHoraMinuto] = 0;
 							Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];
 							CARREGA_TIMER_OVER_ADJ();
-							Wait(200);
+
 						}
+						Segundo = 55;		//TESTE
+						Habilita_Desp();		//Habilita o Despertador Correspondente
 					}
-
-					//---------------------------------------------
-					else
-					{
-						*Tab_Hora_Desp[pTabHoraMinuto] += 1;
-						if(*Tab_Hora_Desp[pTabHoraMinuto] == 24)
-						*Tab_Hora_Desp[pTabHoraMinuto] = 0;
-						Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];
-						CARREGA_TIMER_OVER_ADJ();
-
-					}
-					Segundo = 0;
-					Habilita_Desp();		//Habilita o Despertador Correspondente
 				}
-			}
-			//----------------------
-			else if(LE_SW_SEL_MINUTO() == 0 && TESTE_USERBIT(bAjuste) != 0)		//Só executa se estiver no modo ajuste
-			{
-				Wait(20); //Bouncing
-				if(LE_SW_SEL_MINUTO() == 0)
+				//----------------------
+				else if(LE_SW_SEL_MINUTO() == 0 && TESTE_USERBIT(bAjuste) != 0)		//Só executa se estiver no modo ajuste
 				{
-					Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];	//Pega Hora correspondente e coloca no display
-					Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto]; //idem para Minuto
-
-					Timer_SW_ACIONADA = T_SW_ACIONADA;		//Carrega o temporizador da chave
-					while(Timer_SW_ACIONADA > 0 && LE_SW_SEL_MINUTO() == 0)
-					{}
-					//---------------------------------------------
-					//		Avanço Automático do Minuto
-					//---------------------------------------------
-					if(Timer_SW_ACIONADA == 0)
+					Wait(20); //Bouncing
+					if(LE_SW_SEL_MINUTO() == 0)
 					{
-						while (LE_SW_SEL_MINUTO() == 0)
+						Display_Hora = *Tab_Hora_Desp[pTabHoraMinuto];	//Pega Hora correspondente e coloca no display
+						Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto]; //idem para Minuto
+
+						Timer_SW_ACIONADA = T_SW_ACIONADA;		//Carrega o temporizador da chave
+						while(Timer_SW_ACIONADA > 0 && LE_SW_SEL_MINUTO() == 0)
+						{}
+						//---------------------------------------------
+						//		Avanço Automático do Minuto
+						//---------------------------------------------
+						if(Timer_SW_ACIONADA == 0)
+						{
+							while (LE_SW_SEL_MINUTO() == 0)
+							{
+								*Tab_Minuto_Desp[pTabHoraMinuto] += 1;
+								if(*Tab_Minuto_Desp[pTabHoraMinuto] == 60)
+								*Tab_Minuto_Desp[pTabHoraMinuto] = 0;
+								Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto];
+								CARREGA_TIMER_OVER_ADJ();
+								Wait(200);
+							}
+						}
+						//---------------------------------------------
+						else
 						{
 							*Tab_Minuto_Desp[pTabHoraMinuto] += 1;
 							if(*Tab_Minuto_Desp[pTabHoraMinuto] == 60)
 							*Tab_Minuto_Desp[pTabHoraMinuto] = 0;
 							Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto];
 							CARREGA_TIMER_OVER_ADJ();
-							Wait(200);
 						}
+						Segundo = 55;		//TESTE
+						Habilita_Desp();	//Habilita o Despertador Correspondente
 					}
-					//---------------------------------------------
-					else
-					{
-						*Tab_Minuto_Desp[pTabHoraMinuto] += 1;
-						if(*Tab_Minuto_Desp[pTabHoraMinuto] == 60)
-						*Tab_Minuto_Desp[pTabHoraMinuto] = 0;
-						Display_Minuto = *Tab_Minuto_Desp[pTabHoraMinuto];
-						CARREGA_TIMER_OVER_ADJ();
-					}
-					Segundo = 0;
-					Habilita_Desp();	//Habilita o Despertador Correspondente
 				}
+
+				//----------------------
+				else if(TESTE_USERBIT(bAjuste)!=0 && Timer_Over_ADJ == 0)		//Está no modo ajuste, O tempo encerrou
+				{
+					CLR_USERBIT(bAjuste);
+					Segundo = 55;		//TESTE		//Recomeça a contagem
+					pTabHoraMinuto_bkp = 0;
+					pTabHoraMinuto = 0;
+				}
+				//Pont_Seq_Mq_Estado = 0;
+				Estado = Stat_Mon_Power;
 			}
+			break;
 			//----------------------
-			else if(TESTE_USERBIT(bAjuste)!=0 && Timer_Over_ADJ == 0)		//Está no modo ajuste, O tempo encerrou
+			//Trata o despertador
+			//----------------------
+			case	Stat_Despertador:
+
+			if(((PINB & 0b00000111) != 0b00000111) || (PIND & 0b10000000) == 0)	//Tem chave acionada?
 			{
-				CLR_USERBIT(bAjuste);
-				Segundo = 0;				//Recomeça a contagem
-				pTabHoraMinuto_bkp = 0;
-				pTabHoraMinuto = 0;
+				Wait(50);		//Espera o bouncing
+
+				while ((PIND & 0b00000111) != 0b00000111 || (PIND & 0b10000000) == 0)
+				{}		//Espera soltar a Chave
+
+				CLR_USERBIT(bAlarme_ON);
+				Timer_Buzzer_Alarme = 0;
+				Timer_Over_Despertador = 0;
+
+				CPL_LED_DESP(Led_Desp_3);
 			}
-			Pont_Seq_Mq_Estado = 0;
+			else if( Timer_Over_Despertador == 0)
+			{
+				CLR_USERBIT(bAlarme_ON);
+				Timer_Buzzer_Alarme = 0;
+			}
+			Estado = Stat_Mon_Power;
 			break;
 		}
 	}
 }
-/*========================================================================*/
-
-//					+++ ROTINAS AUXILIARES +++
-
-
- /**========================================================================
- * Rotina:  Buzzer_On()
+/*========================================================================
+					+++ ROTINAS AUXILIARES +++
+ ========================================================================*/
+/* Rotina:  Buzzer_On()
  * Função:  Aciona o Buzzer por um número de vezes e por tempo pré definido
  * Chamada: Buzzer_On(<Tempo de Ligado>,<Numero de vezes que repete>,<Intervalo entre os beeps>)
  * Retorna: Nada
@@ -296,7 +332,6 @@ int main ()
 		n_beeps--;						//Acabou?
 	} while(n_beeps > 0);
 }
-
  /**========================================================================
  * Rotina: Sai_Modo_Ajuste
  * Função:	Sai do modo ajuste. Deixa o relógio no modo Hora

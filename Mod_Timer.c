@@ -5,6 +5,7 @@
 ===============================================================================*/
 #define Mod_Timer
 #include "Mod_Def.h"
+
 //------------------------------------------------------------------------------------
 ISR(TIMER1_COMPA_vect)          // interrupção por igualdade de comparação no TIMER1 Atmega88
 {
@@ -65,10 +66,25 @@ ISR(TIMER1_COMPA_vect)          // interrupção por igualdade de comparação n
 	if(Timer_Led_Seg > 0)
 	Timer_Led_Seg--;
 	/*-----------------------------------------
-	Temporiza o tempo de saída automática do modo ajuste
+	Temporiza a saída automática do modo ajuste
 	--------------------------------------------*/
 	if(Timer_Over_ADJ > 0)
 	Timer_Over_ADJ--;
+	/*-----------------------------------------
+	Temporiza as piscadas dos leds dos despertadores durante um alarme
+	--------------------------------------------*/
+	if(Timer_Led_Alarme > 0)
+	Timer_Led_Alarme--;
+	/*-----------------------------------------
+	Temporiza o toque do buzzer durante um Alarme
+	--------------------------------------------*/
+	if(Timer_Buzzer_Alarme > 0)
+	Timer_Buzzer_Alarme--;
+	/*-----------------------------------------
+	Temporiza parada automática do despertador
+	--------------------------------------------*/
+	if(Timer_Over_Despertador > 0)
+	Timer_Over_Despertador--;
 /*-----------------------------------------------------------------------
 			Temporiza a cadência da piscada do led do segundo
 -----------------------------------------------------------------------*/
@@ -126,9 +142,9 @@ ISR(TIMER1_COMPA_vect)          // interrupção por igualdade de comparação n
 	}
 
 /*-----------------------------------------------------------------------
-	Temporiza as piscadas dos leds dos despertadores no modo ajuste
+	Temporiza as piscadas dos leds dos despertadores no modo ajuste ou quando estiver despertando
 -------------------------------------------------------------------------*/
-	if(TESTE_USERBIT(bAjuste)!= 0)
+	if( TESTE_USERBIT(bAjuste)!= 0)
 	{
 
 		if(Timer_Led_Desp == 0)					//Temporiza as piscadas dos leds no ajuste
@@ -148,8 +164,6 @@ ISR(TIMER1_COMPA_vect)          // interrupção por igualdade de comparação n
 			CPL_LED_SEG();		//Pisca o led do segundo
 
 		}
-
-
 		/*-----------------------------------------------------------------------
 		Gerencia  sinalização do Led Segundo para os despertadores habilitados ou não
 		durante o ajuste. Aceso se despertador estiver habilitado
@@ -184,32 +198,126 @@ ISR(TIMER1_COMPA_vect)          // interrupção por igualdade de comparação n
 	Gerencia  sinalização dos leds dos despertadores
 	Aceso se despertador estiver habilitado
 	------------------------------------------------------------------------*/
-	if((TESTE_USERBIT(bAjuste) != 0 && pTabHoraMinuto != 1) || TESTE_USERBIT(bAjuste) == 0)
+	if(TESTE_USERBIT(bDesp1_ON) == 0 && TESTE_USERBIT(bDesp2_ON) == 0 && TESTE_USERBIT(bDesp3_ON) == 0)
 	{
-		if(TESTE_USERBIT(bHab_Desp1) != 0)	//Despertador habilitado
-		ACENDE_LED_DESP(Led_Desp_1);
-		else
-		APAGA_LED_DESP(Led_Desp_1);
+		if((TESTE_USERBIT(bAjuste) != 0 && pTabHoraMinuto != 1) || TESTE_USERBIT(bAjuste) == 0)
+		{
+			if(TESTE_USERBIT(bHab_Desp1) != 0)	//Despertador habilitado
+			ACENDE_LED_DESP(Led_Desp_1);
+			else
+			APAGA_LED_DESP(Led_Desp_1);
+		}
+		//----------------------------------------------------------------
+		if((TESTE_USERBIT(bAjuste) != 0 && pTabHoraMinuto  != 2) || TESTE_USERBIT(bAjuste) == 0)
+		{
+			if(TESTE_USERBIT(bHab_Desp2) != 0)	//Despertador habilitado
+			ACENDE_LED_DESP(Led_Desp_2);
+			else
+			APAGA_LED_DESP(Led_Desp_2);
+		}
+		//----------------------------------------------------------------
+		if((TESTE_USERBIT(bAjuste) != 0 && pTabHoraMinuto != 3) || TESTE_USERBIT(bAjuste) == 0)
+		{
+			if(TESTE_USERBIT(bHab_Desp3) != 0)	//Despertador habilitado
+			ACENDE_LED_DESP(Led_Desp_3);
+			else
+			APAGA_LED_DESP(Led_Desp_3);
+		}
 	}
-	//----------------------------------------------------------------
-	if((TESTE_USERBIT(bAjuste) != 0 && pTabHoraMinuto  != 2) || TESTE_USERBIT(bAjuste) == 0)
+	/*--------------------------------------------------------------------------
+						Hora de Despertar?
+	--------------------------------------------------------------------------*/
+	//Não deixa habilitar despertador durante um ajuste e durante despertador ativo
+	// Segundo = 0 previne repetir ativação dentro mesmo minuto
+	if(TESTE_USERBIT(bAjuste) == 0 && TESTE_USERBIT(bAlarme_ON) == 0 && Segundo == 0)
 	{
-		if(TESTE_USERBIT(bHab_Desp2) != 0)	//Despertador habilitado
-		ACENDE_LED_DESP(Led_Desp_2);
-		else
-		APAGA_LED_DESP(Led_Desp_2);
+		if(TESTE_USERBIT(bHab_Desp1) != 0)		//Programado para despertar
+		{
+			if(*Tab_Hora_Desp[1] == Hora && *Tab_Minuto_Desp[1] == Minuto)	//Ops, A hora bateu.
+			SET_USERBIT(bDesp1_ON);		//Sinaliza para despertar Despertador 1
+			SET_USERBIT(bAlarme_ON);	//Sinaliza que está despertando
+			Timer_Over_Despertador = 30000/PERIODO_TIMER_1;		//30 segundos para parada automática
+		}
+		if(TESTE_USERBIT(bHab_Desp2) != 0)		//Programado para despertar
+		{
+			if(*Tab_Hora_Desp[2] == Hora && *Tab_Minuto_Desp[2] == Minuto)	//Ops, A hora bateu.
+			SET_USERBIT(bDesp2_ON);		//Sinaliza para despertar Despertador 2
+			SET_USERBIT(bAlarme_ON);	//Sinaliza que está despertando
+			Timer_Over_Despertador = 30000/PERIODO_TIMER_1;		//30 segundos para parada automática
+		}
+		if(TESTE_USERBIT(bHab_Desp3) != 0)		//Programado para despertar
+		{
+			if(*Tab_Hora_Desp[3] == Hora && *Tab_Minuto_Desp[3] == Minuto)	//Ops, A hora bateu.
+			SET_USERBIT(bDesp3_ON);		//Sinaliza para despertar Despertador 3
+			SET_USERBIT(bAlarme_ON);	//Sinaliza que está despertando
+			Timer_Over_Despertador = 30000/PERIODO_TIMER_1;		//30 segundos para parada automática
+		}
 	}
-	//----------------------------------------------------------------
-	if((TESTE_USERBIT(bAjuste) != 0 && pTabHoraMinuto != 3) || TESTE_USERBIT(bAjuste) == 0)
+	/*------------------------------------------------------------------------
+	*		Gerencia as piscadas dos leds dos despertadores durante o alarme
+	*-----------------------------------------------------------------------*/
+	if(Timer_Led_Alarme == 0 && TESTE_USERBIT(bAlarme_ON) != 0)
 	{
-		if(TESTE_USERBIT(bHab_Desp3) != 0)	//Despertador habilitado
-		ACENDE_LED_DESP(Led_Desp_3);
-		else
-		APAGA_LED_DESP(Led_Desp_3);
+		Timer_Led_Alarme = 100/PERIODO_TIMER_1;
+
+		if(TESTE_USERBIT(bDesp1_ON) != 0)
+		CPL_LED_DESP(Led_Desp_1);
+
+		else if(TESTE_USERBIT(bDesp2_ON) != 0)
+		CPL_LED_DESP(Led_Desp_2);
+
+		else if(TESTE_USERBIT(bDesp3_ON) != 0)
+		CPL_LED_DESP(Led_Desp_3);
 	}
-/*------------------------------------------------------------------------
- *		Driver de controle dos displays de 7 segmentos
- *-----------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------
+	*		    Toca o Buzzer no Despertador
+	*-----------------------------------------------------------------------*/
+	if(TESTE_USERBIT(bAlarme_ON) != 0 && TESTE_USERBIT(bSoneca) == 0)
+	{
+		if (Timer_Buzzer_Alarme == 0)
+		{
+
+			switch(Seq_Buzzer)
+			{
+				case 0:
+				case 2:
+				case 4:
+				case 6:
+				LIGA_BUZZER();
+				Timer_Buzzer_Alarme = 50/PERIODO_TIMER_1;
+				Seq_Buzzer++;
+				break;
+				//-----------------------------
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				DESLIGA_BUZZER();
+				Timer_Buzzer_Alarme = 100/PERIODO_TIMER_1;
+				Seq_Buzzer++;
+				break;
+
+				case 8:
+				LIGA_BUZZER();
+				Timer_Buzzer_Alarme = 100/PERIODO_TIMER_1;
+				Seq_Buzzer++;
+				break;
+
+				case 9:
+				DESLIGA_BUZZER();
+				Timer_Buzzer_Alarme = 600/PERIODO_TIMER_1;
+				Seq_Buzzer++;
+				break;
+
+				default:
+				Seq_Buzzer = 0;
+			}
+
+		}
+	}
+	/*------------------------------------------------------------------------
+	*		Driver de controle dos displays de 7 segmentos
+	*-----------------------------------------------------------------------*/
 	if(	TESTE_USERBIT(bApaga_DSP) == 0 ||	//Sem sinalização para apagar o display
 		TESTE_USERBIT(bAjuste) != 0) 	//Fazendo algum ajuste
 	{
