@@ -8,7 +8,7 @@ MCU=atmega88p
 OUTPUT_DIR="Binarios"
 TARGET="RLDSP_88_RTC"
 SIGNATURE_ADDR=0x1800
-SOURCES="RLDSP_88_RTC.c Mod_Timer.c Mod_RTC.c Mod_Driver.c"
+SOURCES="RLDSP_88_RTC.c Mod_Timer.c Mod_RTC.c Mod_Driver.c soft_serial.c"
 
 # --- 0. Limpeza (Clean) ---
 echo "[0/5] Limpando arquivos antigos..."

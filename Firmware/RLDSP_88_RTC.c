@@ -221,9 +221,9 @@ int main ()
 					CPL_LED_SEG();			//Pisca o led do segundo
 					Segundo = Converte_BCD_to_DEC(TWI_RTC_Read(RTC_Segundo));
 
-					if(Segundo >= 55 || Segundo < 5)		//Janela de tolerância ao redor da virada do minuto
+					if(Segundo < 5)		//Janela de tolerância só DEPOIS da virada do minuto (nunca antes, senão a trava arma cedo demais)
 					{
-						if(Teste_Userbit(bMinutoAtualizado) == 0 || Teste_Userbit(bForceAtlDSP) != 0)
+						if(Teste_Userbit(bMinutoAtualizado) == 0)
 						{
 							Minuto = Converte_BCD_to_DEC(TWI_RTC_Read(RTC_Minuto));
 							Display_Minuto = Minuto;
@@ -231,11 +231,20 @@ int main ()
 							Display_Hora = Hora;
 
 							Set_Userbit(bMinutoAtualizado);	//Trava até sair da janela
-							Clr_Userbit(bForceAtlDSP);
 						}
 					}
 					else
 					Clr_Userbit(bMinutoAtualizado);		//Fora da janela, libera pra próxima virada
+
+					if(Teste_Userbit(bForceAtlDSP) != 0)		//Força atualização imediata, independente do segundo atual
+					{
+						Minuto = Converte_BCD_to_DEC(TWI_RTC_Read(RTC_Minuto));
+						Display_Minuto = Minuto;
+						Hora = Converte_BCD_to_DEC(TWI_RTC_Read(RTC_Hora));
+						Display_Hora = Hora;
+
+						Clr_Userbit(bForceAtlDSP);
+					}
 				}
 			}
 			Pont_Seq_Mq_Estado++;
