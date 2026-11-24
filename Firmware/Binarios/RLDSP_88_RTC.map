@@ -1,0 +1,689 @@
+Membro de arquivo incluído para satisfazer referência por arquivo (símbolo)
+
+/usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+                              Binarios/Mod_RTC.o (__udivmodqi4)
+/usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+                              Binarios/soft_serial.o (__udivmodhi4)
+/usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o (exit)
+/usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+                              Binarios/Mod_Driver.o (__do_copy_data)
+/usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+                              Binarios/Mod_Driver.o (__do_clear_bss)
+/usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+                              Binarios/RLDSP_88_RTC.o (eeprom_read_byte)
+/usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+                              Binarios/RLDSP_88_RTC.o (eeprom_write_byte)
+
+Alocação de símbolos comuns
+Símbolo comum       tamanho           arquivo
+
+Timer_500ms         0x1               Binarios/RLDSP_88_RTC.o
+AddresBit_2         0x1               Binarios/RLDSP_88_RTC.o
+Real_Timer          0x1               Binarios/RLDSP_88_RTC.o
+AddresBit_0         0x1               Binarios/RLDSP_88_RTC.o
+Time_Bouncing       0x1               Binarios/RLDSP_88_RTC.o
+Minuto              0x1               Binarios/RLDSP_88_RTC.o
+Minuto_Desp_3       0x1               Binarios/RLDSP_88_RTC.o
+Timer_Led_Alarme    0x1               Binarios/RLDSP_88_RTC.o
+Mask                0x1               Binarios/RLDSP_88_RTC.o
+Hab_Despertador     0x1               Binarios/RLDSP_88_RTC.o
+Fim_Tab_Hora        0x1               Binarios/RLDSP_88_RTC.o
+Leitura_ADC         0x2               Binarios/RLDSP_88_RTC.o
+pTabHoraMinuto      0x1               Binarios/RLDSP_88_RTC.o
+Timer_Over_ADJ      0x1               Binarios/RLDSP_88_RTC.o
+VL_Chaves           0x1               Binarios/RLDSP_88_RTC.o
+bit                 0x1               Binarios/Mod_Driver.o
+Timer_Wait          0x2               Binarios/RLDSP_88_RTC.o
+Timer_Soneca        0x2               Binarios/RLDSP_88_RTC.o
+PORTC_Img           0x1               Binarios/RLDSP_88_RTC.o
+Timer_SW_ACIONADA_Local
+                    0x2               Binarios/RLDSP_88_RTC.o
+Minuto_Desp_1       0x1               Binarios/RLDSP_88_RTC.o
+pont_bit            0x1               Binarios/Mod_Driver.o
+LeitRTC             0x1               Binarios/RLDSP_88_RTC.o
+Seq_Buzzer          0x1               Binarios/RLDSP_88_RTC.o
+Display_Minuto      0x1               Binarios/RLDSP_88_RTC.o
+Timer_SW_ACIONADA   0x2               Binarios/RLDSP_88_RTC.o
+Timer_Led_Desp      0x1               Binarios/RLDSP_88_RTC.o
+Estado              0x1               Binarios/RLDSP_88_RTC.o
+AddresBit_1         0x1               Binarios/RLDSP_88_RTC.o
+Seq_Leit_Chaves     0x1               Binarios/RLDSP_88_RTC.o
+Segundo             0x1               Binarios/RLDSP_88_RTC.o
+Hora_Desp_1         0x1               Binarios/RLDSP_88_RTC.o
+ValTeclabkp         0x1               Binarios/RLDSP_88_RTC.o
+Timer_Over_Despertador
+                    0x1               Binarios/RLDSP_88_RTC.o
+Hora_Desp_3         0x1               Binarios/RLDSP_88_RTC.o
+Pont_Seq_Mq_Estado  0x1               Binarios/RLDSP_88_RTC.o
+CTR_Display         0x1               Binarios/RLDSP_88_RTC.o
+Aux16               0x2               Binarios/RLDSP_88_RTC.o
+Timer_Ch_Saida_Soneca
+                    0x1               Binarios/RLDSP_88_RTC.o
+pTabHoraMinuto_bkp  0x1               Binarios/RLDSP_88_RTC.o
+Timer_Buzzer_Alarme
+                    0x1               Binarios/RLDSP_88_RTC.o
+VL_Ch_Temp          0x1               Binarios/RLDSP_88_RTC.o
+Timer_Mon_Energia   0x1               Binarios/RLDSP_88_RTC.o
+Timer_Led_Seg       0x2               Binarios/RLDSP_88_RTC.o
+Fim_Tab_Minuto      0x1               Binarios/RLDSP_88_RTC.o
+Hora                0x1               Binarios/RLDSP_88_RTC.o
+Display_Hora        0x1               Binarios/RLDSP_88_RTC.o
+Aux8                0x1               Binarios/RLDSP_88_RTC.o
+Hora_Desp_2         0x1               Binarios/RLDSP_88_RTC.o
+nClock              0x1               Binarios/RLDSP_88_RTC.o
+Minuto_Desp_2       0x1               Binarios/RLDSP_88_RTC.o
+VL_Ch               0x1               Binarios/RLDSP_88_RTC.o
+
+Configuração de memória
+
+Nome             Origem             Tamanho            Atributos
+text             0x0000000000000000 0x0000000000002000 xr
+data             0x0000000000800100 0x0000000000000400 rw !x
+eeprom           0x0000000000810000 0x0000000000000200 rw !x
+fuse             0x0000000000820000 0x0000000000000003 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+user_signatures  0x0000000000850000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Mapa de memória e script de vinculador
+
+Endereço de seção .data definido para 0x800100
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+Endereço de seção .assinatura definido para 0x1800
+LOAD Binarios/Mod_Driver.o
+LOAD Binarios/Mod_RTC.o
+LOAD Binarios/Mod_Timer.o
+LOAD Binarios/RLDSP_88_RTC.o
+LOAD Binarios/soft_serial.o
+START GROUP
+LOAD /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libm.a
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libc.a
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a
+END GROUP
+                0x0000000000000000                __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
+                [0x0000000000800100]                __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x800060
+                [0x0000000000002000]                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x2000
+                [0x0000000000000400]                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                [0x0000000000000200]                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x0000000000000003]                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x0000000000000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x0000000000000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x0000000000000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x0000000000000000     0x163a
+ *(.vectors)
+ .vectors       0x0000000000000000       0x34 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+                0x0000000000000000                __vectors
+                0x0000000000000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x0000000000000034                . = ALIGN (0x2)
+                0x0000000000000034                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000000000000034        0x0 linker stubs
+ *(.trampolines*)
+                0x0000000000000034                __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem*)
+ .progmem.data  0x0000000000000034       0x2f Binarios/RLDSP_88_RTC.o
+                0x0000000000000034                Tab_Desp
+                0x0000000000000054                Tab_Seq_Mq_Estado
+                0x0000000000000059                Tab_Num
+                0x0000000000000064                . = ALIGN (0x2)
+ *fill*         0x0000000000000063        0x1 
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000000000000064                __ctors_start = .
+ *(.ctors)
+                0x0000000000000064                __ctors_end = .
+                0x0000000000000064                __dtors_start = .
+ *(.dtors)
+                0x0000000000000064                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000000000000064        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+                0x0000000000000064                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000000000000064        0xc /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000000000000070       0x16 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000070                __do_copy_data
+ .init4         0x0000000000000086       0x10 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000086                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000000000000096        0x4 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+ *(.init9)
+ *(.text)
+ .text          0x000000000000009a        0x2 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+                0x000000000000009a                __vector_22
+                0x000000000000009a                __vector_1
+                0x000000000000009a                __vector_24
+                0x000000000000009a                __vector_12
+                0x000000000000009a                __bad_interrupt
+                0x000000000000009a                __vector_6
+                0x000000000000009a                __vector_3
+                0x000000000000009a                __vector_23
+                0x000000000000009a                __vector_25
+                0x000000000000009a                __vector_13
+                0x000000000000009a                __vector_17
+                0x000000000000009a                __vector_19
+                0x000000000000009a                __vector_7
+                0x000000000000009a                __vector_5
+                0x000000000000009a                __vector_4
+                0x000000000000009a                __vector_9
+                0x000000000000009a                __vector_2
+                0x000000000000009a                __vector_21
+                0x000000000000009a                __vector_15
+                0x000000000000009a                __vector_8
+                0x000000000000009a                __vector_14
+                0x000000000000009a                __vector_10
+                0x000000000000009a                __vector_16
+                0x000000000000009a                __vector_18
+                0x000000000000009a                __vector_20
+ .text          0x000000000000009c      0x290 Binarios/Mod_Driver.o
+                0x000000000000009c                Teste_Userbit
+                0x00000000000000d6                Set_Userbit
+                0x000000000000010e                Clr_Userbit
+                0x0000000000000148                Cpl_Userbit
+                0x0000000000000180                Set_Port_Bit
+                0x00000000000001b8                Clr_Port_Bit
+                0x00000000000001f2                Cpl_Port_Bit
+                0x000000000000022a                Teste_Port_Bit
+                0x0000000000000264                Config_Port_Bit
+                0x00000000000002a6                Wait
+                0x00000000000002bc                Config_ADC
+                0x00000000000002f0                Le_ADC
+ .text          0x000000000000032c       0xd8 Binarios/Mod_RTC.o
+                0x000000000000032c                TWI_Init
+                0x000000000000033e                TWI_Write
+                0x0000000000000352                TWI_ReadACK
+                0x0000000000000366                TWI_ReadNACK
+                0x000000000000037a                TWI_Stop
+                0x0000000000000382                TWI_Start
+                0x00000000000003a4                TWI_RTC_Write
+                0x00000000000003c4                TWI_RTC_Read
+                0x00000000000003e0                Converte_BCD_to_DEC
+                0x00000000000003f2                Converte_DEC_to_BCD
+ .text          0x0000000000000404      0x65a Binarios/Mod_Timer.o
+                0x0000000000000404                __vector_11
+                0x00000000000009c4                Configura_Timer_1_Modo_CTC
+                0x0000000000000a00                Incrementa_Modo_BCD
+                0x0000000000000a1e                Contador_Relogio
+ .text          0x0000000000000a5e       0xec Binarios/RLDSP_88_RTC.o
+                0x0000000000000a5e                Buzzer_On
+                0x0000000000000a9a                Sai_Modo_Ajuste
+                0x0000000000000aac                Habilita_Desp
+                0x0000000000000aea                Verifica_Chave_Acionada
+                0x0000000000000b16                Default_Parametros
+ .text          0x0000000000000b4a      0x192 Binarios/soft_serial.o
+                0x0000000000000b4a                soft_serial_write
+                0x0000000000000b78                Envia_String_Soft
+                0x0000000000000b92                Serial_Print_Soft
+                0x0000000000000ba8                EnvNumSoft
+                0x0000000000000c90                soft_serial_init
+                0x0000000000000c98                soft_serial_available
+                0x0000000000000ca4                soft_serial_read
+ .text          0x0000000000000cdc        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000000cdc        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .text          0x0000000000000cdc        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .text          0x0000000000000cdc        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .text          0x0000000000000cdc        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000cdc        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+ .text          0x0000000000000cdc        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+                0x0000000000000cdc                . = ALIGN (0x2)
+ *(.text.*)
+ .text.startup  0x0000000000000cdc      0x8ee Binarios/RLDSP_88_RTC.o
+                0x0000000000000cdc                main
+ .text.libgcc.mul
+                0x00000000000015ca        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.div
+                0x00000000000015ca       0x18 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+                0x00000000000015ca                __udivmodqi4
+ .text.libgcc   0x00000000000015e2        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.prologue
+                0x00000000000015e2        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.builtins
+                0x00000000000015e2        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fmul
+                0x00000000000015e2        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fixed
+                0x00000000000015e2        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.mul
+                0x00000000000015e2        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.div
+                0x00000000000015e2       0x28 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+                0x00000000000015e2                __udivmodhi4
+ .text.libgcc   0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.prologue
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.builtins
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fmul
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fixed
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.mul
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x000000000000160a        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x000000000000160a       0x10 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+                0x000000000000160a                eeprom_read_byte
+ .text.avr-libc
+                0x000000000000161a       0x1c /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+                0x000000000000161a                eeprom_write_byte
+                0x000000000000161c                eeprom_write_r18
+                0x0000000000001636                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000000000001636        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+                0x0000000000001636                exit
+                0x0000000000001636                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000000000001636        0x4 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ *(.fini0)
+                0x000000000000163a                _etext = .
+
+.data           0x0000000000800100       0x44 carga com endereço 0x000000000000163a
+                0x0000000000800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x0000000000800100        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+ .data          0x0000000000800100       0x1a Binarios/Mod_Driver.o
+                0x0000000000800100                Tab_Ram_Bit
+                0x0000000000800108                Tab_DDRs
+                0x000000000080010e                Tab_Pins
+                0x0000000000800114                Tab_Ports
+ .data          0x000000000080011a        0x0 Binarios/Mod_RTC.o
+ .data          0x000000000080011a        0x0 Binarios/Mod_Timer.o
+ .data          0x000000000080011a       0x14 Binarios/RLDSP_88_RTC.o
+                0x000000000080011a                Tab_Minuto_Desp
+                0x0000000000800124                Tab_Hora_Desp
+ .data          0x000000000080012e        0x0 Binarios/soft_serial.o
+ .data          0x000000000080012e        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .data          0x000000000080012e        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .data          0x000000000080012e        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .data          0x000000000080012e        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .data          0x000000000080012e        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .data          0x000000000080012e        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+ .data          0x000000000080012e        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+ *(.data*)
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ *(.rodata*)
+ .rodata.str1.1
+                0x000000000080012e       0x16 Binarios/RLDSP_88_RTC.o
+ *(.gnu.linkonce.r*)
+                0x0000000000800144                . = ALIGN (0x2)
+                0x0000000000800144                _edata = .
+                0x0000000000800144                PROVIDE (__data_end, .)
+
+.bss            0x0000000000800144       0x3b
+                0x0000000000800144                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0000000000800144        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+ .bss           0x0000000000800144        0x0 Binarios/Mod_Driver.o
+ .bss           0x0000000000800144        0x0 Binarios/Mod_RTC.o
+ .bss           0x0000000000800144        0x0 Binarios/Mod_Timer.o
+ .bss           0x0000000000800144        0x0 Binarios/RLDSP_88_RTC.o
+ .bss           0x0000000000800144        0x0 Binarios/soft_serial.o
+ .bss           0x0000000000800144        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodqi4.o)
+ .bss           0x0000000000800144        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_udivmodhi4.o)
+ .bss           0x0000000000800144        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_exit.o)
+ .bss           0x0000000000800144        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_copy_data.o)
+ .bss           0x0000000000800144        0x0 /usr/lib/gcc/avr/7.3.0/avr4/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000800144        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+ .bss           0x0000000000800144        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0000000000800144        0x2 Binarios/Mod_Driver.o
+                0x0000000000800144                bit
+                0x0000000000800145                pont_bit
+ COMMON         0x0000000000800146       0x39 Binarios/RLDSP_88_RTC.o
+                0x0000000000800146                Timer_500ms
+                0x0000000000800147                AddresBit_2
+                0x0000000000800148                Real_Timer
+                0x0000000000800149                AddresBit_0
+                0x000000000080014a                Time_Bouncing
+                0x000000000080014b                Minuto
+                0x000000000080014c                Minuto_Desp_3
+                0x000000000080014d                Timer_Led_Alarme
+                0x000000000080014e                Mask
+                0x000000000080014f                Hab_Despertador
+                0x0000000000800150                Fim_Tab_Hora
+                0x0000000000800151                Leitura_ADC
+                0x0000000000800153                pTabHoraMinuto
+                0x0000000000800154                Timer_Over_ADJ
+                0x0000000000800155                VL_Chaves
+                0x0000000000800156                Timer_Wait
+                0x0000000000800158                Timer_Soneca
+                0x000000000080015a                PORTC_Img
+                0x000000000080015b                Timer_SW_ACIONADA_Local
+                0x000000000080015d                Minuto_Desp_1
+                0x000000000080015e                LeitRTC
+                0x000000000080015f                Seq_Buzzer
+                0x0000000000800160                Display_Minuto
+                0x0000000000800161                Timer_SW_ACIONADA
+                0x0000000000800163                Timer_Led_Desp
+                0x0000000000800164                Estado
+                0x0000000000800165                AddresBit_1
+                0x0000000000800166                Seq_Leit_Chaves
+                0x0000000000800167                Segundo
+                0x0000000000800168                Hora_Desp_1
+                0x0000000000800169                ValTeclabkp
+                0x000000000080016a                Timer_Over_Despertador
+                0x000000000080016b                Hora_Desp_3
+                0x000000000080016c                Pont_Seq_Mq_Estado
+                0x000000000080016d                CTR_Display
+                0x000000000080016e                Aux16
+                0x0000000000800170                Timer_Ch_Saida_Soneca
+                0x0000000000800171                pTabHoraMinuto_bkp
+                0x0000000000800172                Timer_Buzzer_Alarme
+                0x0000000000800173                VL_Ch_Temp
+                0x0000000000800174                Timer_Mon_Energia
+                0x0000000000800175                Timer_Led_Seg
+                0x0000000000800177                Fim_Tab_Minuto
+                0x0000000000800178                Hora
+                0x0000000000800179                Display_Hora
+                0x000000000080017a                Aux8
+                0x000000000080017b                Hora_Desp_2
+                0x000000000080017c                nClock
+                0x000000000080017d                Minuto_Desp_2
+                0x000000000080017e                VL_Ch
+                0x000000000080017f                PROVIDE (__bss_end, .)
+                0x000000000000163a                __data_load_start = LOADADDR (.data)
+                0x000000000000167e                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x000000000080017f        0x0
+                [!provide]                        PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                [!provide]                        PROVIDE (__noinit_end, .)
+                0x000000000080017f                _end = .
+                [!provide]                        PROVIDE (__heap_start, .)
+
+.eeprom         0x0000000000810000        0x0
+ *(.eeprom*)
+                0x0000000000810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x11
+ *(.comment)
+ .comment       0x0000000000000000       0x11 Binarios/Mod_Driver.o
+                                         0x12 (tamanho antes de relaxar)
+ .comment       0x0000000000000011       0x12 Binarios/Mod_RTC.o
+ .comment       0x0000000000000011       0x12 Binarios/Mod_Timer.o
+ .comment       0x0000000000000011       0x12 Binarios/RLDSP_88_RTC.o
+ .comment       0x0000000000000011       0x12 Binarios/soft_serial.o
+
+.note.gnu.avr.deviceinfo
+                0x0000000000000000       0x3c
+ .note.gnu.avr.deviceinfo
+                0x0000000000000000       0x3c /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+
+.avr.prop       0x0000000000000000       0x16
+ .avr.prop      0x0000000000000000       0x16 Binarios/Mod_Timer.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000      0x5f4
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0x5f4 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+
+.debug_abbrev   0x0000000000000000      0x5a2
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x5a2 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+
+.debug_line     0x0000000000000000       0x1a
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000       0x1a /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x0000000000000000      0x208
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x208 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr4/crtatmega88p.o
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(Binarios/RLDSP_88_RTC.elf elf32-avr)
+LOAD linker stubs
+
+.assinatura     0x0000000000001800        0x0

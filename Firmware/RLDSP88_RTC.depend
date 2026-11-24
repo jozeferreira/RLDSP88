@@ -1,0 +1,107 @@
+# depslib dependency file v1.0
+1654999242 source:/home/jose/Dados/Dropbox/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Driver.c
+	"Mod_Def.h"
+
+1669072259 /home/jose/Dados/Dropbox/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Def.h
+	<avr/io.h>
+	<avr/interrupt.h>
+
+1655495283 source:/home/jose/Dados/Dropbox/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Timer.c
+	"Mod_Def.h"
+
+1669072738 source:/home/jose/Dados/Dropbox/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/RLDSP_88.c
+	"Mod_Def.h"
+
+1654999242 source:/home/escritorio/Insync/ferreiracarlosjose@gmail.com/Google Drive/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Driver.c
+	"Mod_Def.h"
+
+1701695310 /home/escritorio/Insync/ferreiracarlosjose@gmail.com/Google Drive/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Def.h
+	<avr/io.h>
+	<avr/interrupt.h>
+
+1655495283 source:/home/escritorio/Insync/ferreiracarlosjose@gmail.com/Google Drive/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Timer.c
+	"Mod_Def.h"
+
+1701694900 source:/home/escritorio/Insync/ferreiracarlosjose@gmail.com/Google Drive/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/RLDSP_88.c
+	"Mod_Def.h"
+
+1654999242 source:/home/jose/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Driver.c
+	"Mod_Def.h"
+
+1701695310 /home/jose/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Def.h
+	<avr/io.h>
+	<avr/interrupt.h>
+
+1655495283 source:/home/jose/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Timer.c
+	"Mod_Def.h"
+
+1719254507 source:/home/jose/Projetos/Meus_Projetos/RLDSP_88/Firmware/RLDSP_88.c
+	"Mod_Def.h"
+
+1654999242 source:/media/sf_Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Driver.c
+	"Mod_Def.h"
+
+1701695310 /media/sf_Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Def.h
+	<avr/io.h>
+	<avr/interrupt.h>
+
+1655495283 source:/media/sf_Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Timer.c
+	"Mod_Def.h"
+
+1719254507 source:/media/sf_Projetos/Meus_Projetos/RLDSP_88/Firmware/RLDSP_88.c
+	"Mod_Def.h"
+
+1766378782 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Driver.c
+	"Mod_Def.h"
+
+1766380116 /home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Def.h
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+	<util/atomic.h>
+
+1766380608 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_Timer.c
+	"Mod_Def.h"
+
+1766380471 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/RLDSP_88.c
+	"Mod_Def.h"
+
+1765948801 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88/Firmware/Mod_RTC.c
+	"Mod_Def.h"
+
+1772922325 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/Mod_Driver.c
+	"Mod_Def.h"
+
+1772923101 /home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/Mod_Def.h
+	<avr/io.h>
+	<stdint.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+	<util/atomic.h>
+	<avr/eeprom.h>
+	"soft_serial.h"
+
+1768789895 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/Mod_RTC.c
+	"Mod_Def.h"
+
+1772923166 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/Mod_Timer.c
+	"Mod_Def.h"
+
+1766421718 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/RLDSP_88.c
+	"Mod_Def.h"
+
+1772922325 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/RLDSP_88_RTC.c
+	"Mod_Def.h"
+	"soft_serial.h"
+
+1766936870 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/01_RLDSP_88_RTC.c
+	"Mod_Def.h"
+
+1770081222 source:/home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/soft_serial.c
+	"soft_serial.h"
+	"soft_serial.h"
+	<util/delay.h>
+
+1772923311 /home/jose/Google_Drive/Nossa_Pasta/JCarlos/Projetos/Meus_Projetos/RLDSP_88_RTC/Firmware/soft_serial.h
+	<avr/io.h>
+
